@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,7 +29,6 @@
     --text:#f7f9ff;
     --muted:#aab6c9;
     --blue:#2563EB;
-    --violet:#7C3AED;
     --cyan:#60a5fa;
     --purple:#7c3aed;
     --border:rgba(255,255,255,.09);
@@ -39,9 +37,10 @@
 body{
     font-family:Arial,Helvetica,sans-serif;
     background:
-        radial-gradient(circle at 12% 12%,rgba(124,58,237,.22),transparent 30%),
-        radial-gradient(circle at 88% 20%,rgba(37,99,235,.16),transparent 32%),
-        linear-gradient(135deg,#050714,#090B1C 50%,#050714);
+        radial-gradient(circle at 12% 8%,rgba(37,99,235,.16),transparent 30%),
+        radial-gradient(circle at 88% 18%,rgba(124,58,237,.20),transparent 34%),
+        radial-gradient(circle at 50% 100%,rgba(124,58,237,.10),transparent 38%),
+        linear-gradient(135deg,#050914,#0B1020 48%,#090714);
     color:var(--text);
     line-height:1.6;
     overflow-x:hidden;
@@ -94,12 +93,36 @@ header{
 }
 
 .logo{
-    font-size:23px;
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    font-size:22px;
     font-weight:900;
+    letter-spacing:-.4px;
+    white-space:nowrap;
 }
 
-.logo span{
-    color:var(--cyan);
+.logo-mark{
+    width:40px;
+    height:40px;
+    flex:0 0 40px;
+    display:block;
+}
+
+.logo-word{
+    color:#f8fafc;
+}
+
+.logo-word span{
+    color:#7c3aed;
+}
+
+.logo:hover .logo-mark{
+    transform:translateY(-1px) rotate(-2deg);
+}
+
+.logo-mark{
+    transition:transform .25s ease;
 }
 
 .nav-links{
@@ -166,7 +189,7 @@ header{
 }
 
 .hero h1 span{
-    background:linear-gradient(90deg,var(--violet),var(--blue),var(--cyan));
+    background:linear-gradient(90deg,var(--cyan),var(--blue),var(--purple));
     -webkit-background-clip:text;
     color:transparent;
 }
@@ -254,6 +277,36 @@ header{
     font-size:18px;
 }
 
+.brand-lockup{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-bottom:4px;
+}
+
+.mini-logo{
+    width:30px;
+    height:30px;
+    flex:0 0 30px;
+}
+
+.profile-name-lockup{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin:8px 0 18px;
+}
+
+.profile-name-lockup .mini-logo{
+    width:38px;
+    height:38px;
+}
+
+.profile-name-lockup h2{
+    margin:0;
+}
+
+
 .hero-overlay small{
     color:var(--muted);
 }
@@ -328,7 +381,7 @@ header{
 .services-section{
     background:
         linear-gradient(rgba(5,9,20,.82),rgba(5,9,20,.96)),
-        radial-gradient(circle at center,rgba(124,58,237,.16),transparent 55%);
+        radial-gradient(circle at center,rgba(59,130,246,.12),transparent 55%);
 }
 
 .services-grid{
@@ -536,15 +589,6 @@ header{
     border-radius:13px;
 }
 
-.video-upload{
-    padding:15px 5px 5px;
-}
-
-.video-upload input{
-    width:100%;
-    color:var(--muted);
-    font-size:12px;
-}
 
 .video-info{
     padding:15px 7px 5px;
@@ -603,7 +647,7 @@ header{
 
 .contact-section{
     background:
-        radial-gradient(circle at center,rgba(124,58,237,.16),transparent 50%);
+        radial-gradient(circle at center,rgba(59,130,246,.12),transparent 50%);
 }
 
 .contact-box{
@@ -708,96 +752,6 @@ footer{
 }
 
 
-
-
-/* =====================================================
-   MEDIA INTEGRATION
-   Real project media can be wired into the existing
-   portfolio without changing the page structure.
-===================================================== */
-
-.media-source-note{
-    margin-top:10px;
-    color:#94A3B8;
-    font-size:11px;
-    line-height:1.55;
-}
-
-.media-frame{
-    position:relative;
-    overflow:hidden;
-    border-radius:15px;
-    background:#050714;
-    border:1px solid rgba(255,255,255,.06);
-}
-
-.media-frame img,
-.media-frame video{
-    display:block;
-    width:100%;
-    height:100%;
-    object-fit:cover;
-}
-
-.portfolio-media-grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:18px;
-    margin-top:28px;
-}
-
-.portfolio-media-card{
-    overflow:hidden;
-    border-radius:18px;
-    background:#111827;
-    border:1px solid #29334A;
-}
-
-.portfolio-media-image{
-    aspect-ratio:16/10;
-}
-
-.portfolio-media-card-content{
-    padding:15px;
-}
-
-.portfolio-media-card-content h3{
-    font-size:15px;
-    margin-bottom:4px;
-}
-
-.portfolio-media-card-content p{
-    color:#94A3B8;
-    font-size:11px;
-}
-
-.work-video{
-    aspect-ratio:16/9;
-    height:auto;
-    min-height:0;
-    object-fit:contain;
-    background:#050714;
-}
-
-.video-poster{
-    width:100%;
-    aspect-ratio:16/9;
-    object-fit:cover;
-    display:block;
-    background:#050714;
-}
-
-@media(max-width:950px){
-    .portfolio-media-grid{
-        grid-template-columns:repeat(2,1fr);
-    }
-}
-
-@media(max-width:650px){
-    .portfolio-media-grid{
-        grid-template-columns:1fr;
-    }
-}
 
 /* =====================================================
    SKILLS FLOW + CREATIVE & DIGITAL EXPERTISE
@@ -1122,6 +1076,30 @@ footer{
 }
 
 
+
+/* REAL USER MEDIA */
+.real-media-section{background:radial-gradient(circle at 18% 20%,rgba(124,58,237,.15),transparent 30%),radial-gradient(circle at 82% 80%,rgba(37,99,235,.12),transparent 32%),#0B1020;}
+.media-profile-card{display:grid;grid-template-columns:.7fr 1.3fr;gap:34px;align-items:center;margin-bottom:45px;}
+.real-profile-image{width:100%;height:440px;object-fit:cover;border-radius:20px;border:1px solid #29334A;background:#111827;box-shadow:0 20px 55px rgba(0,0,0,.28);display:block;}
+.media-profile-copy h3{font-size:clamp(28px,4vw,43px);line-height:1.12;margin-bottom:16px;}
+.media-profile-copy p{color:#94A3B8;max-width:650px;margin-bottom:16px;}
+.media-label{display:inline-block;color:#60a5fa;font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase;margin-bottom:10px;}
+.media-work-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;}
+.media-work-card{overflow:hidden;border-radius:20px;background:#111827;border:1px solid #29334A;box-shadow:0 16px 45px rgba(0,0,0,.2);}
+.media-frame{position:relative;width:100%;aspect-ratio:16/9;background:#050914;overflow:hidden;}
+.media-frame iframe{width:100%;height:100%;border:0;display:block;}
+.media-work-info{padding:18px;}
+.media-work-info h3{font-size:18px;margin-bottom:6px;}
+.media-work-info p{color:#94A3B8;font-size:12px;line-height:1.6;}
+.media-note{margin-top:20px;padding:13px 15px;border-radius:12px;background:rgba(124,58,237,.055);border:1px dashed rgba(124,58,237,.3);color:#94A3B8;font-size:11px;line-height:1.6;}
+.skill-flow-card{position:relative;overflow:hidden;}
+.skill-flow-card.skill-with-image{padding:0;min-width:230px;height:78px;border-radius:16px;}
+.skill-flow-card.skill-with-image img{width:100%;height:100%;object-fit:cover;display:block;opacity:.5;transition:.3s ease;}
+.skill-flow-card.skill-with-image::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(5,9,20,.9),rgba(37,99,235,.22),rgba(5,9,20,.82));}
+.skill-flow-card.skill-with-image span{position:absolute;inset:0;z-index:2;display:flex;align-items:center;padding:0 18px;color:#F8FAFC;font-size:13px;font-weight:800;}
+@media(max-width:950px){.media-profile-card{grid-template-columns:1fr}.real-profile-image{height:400px;max-width:620px;margin:auto;}.media-work-grid{grid-template-columns:1fr;}}
+@media(max-width:650px){.real-profile-image{height:360px}.skill-flow-card.skill-with-image{min-width:205px;height:70px;}}
+
 /* =========================
    MOBILE
 ========================= */
@@ -1236,8 +1214,23 @@ footer{
 
 <div class="container navbar">
 
-<a href="#home" class="logo">
-Joseph <span>Editz</span>
+<a href="#home" class="logo" aria-label="Joseph Editz home">
+<svg class="logo-mark" viewBox="0 0 64 64" role="img" aria-labelledby="josephLogoTitle josephLogoDesc" xmlns="http://www.w3.org/2000/svg">
+<title id="josephLogoTitle">Joseph Editz logo</title>
+<desc id="josephLogoDesc">A modern JE monogram for Joseph Editz</desc>
+<defs>
+<linearGradient id="josephLogoGradient" x1="8" y1="8" x2="56" y2="56" gradientUnits="userSpaceOnUse">
+<stop offset="0" stop-color="#2563EB"/>
+<stop offset="0.55" stop-color="#7C3AED"/>
+<stop offset="1" stop-color="#F43F5E"/>
+</linearGradient>
+</defs>
+<rect x="3" y="3" width="58" height="58" rx="17" fill="#0B1020" stroke="url(#josephLogoGradient)" stroke-width="2"/>
+<path d="M18 18H45V23H24V31H39V36H24V42C24 45.314 26.686 48 30 48H45V53H29C21.82 53 18 48.88 18 42V18Z" fill="url(#josephLogoGradient)"/>
+<path d="M34 18H45C48.866 18 52 21.134 52 25V39C52 46.732 45.732 53 38 53H34V48H38C40.761 48 43 45.761 43 43V23H34V18Z" fill="#F8FAFC" opacity=".96"/>
+<path d="M39 28H52V33H39V28Z" fill="#7C3AED"/>
+</svg>
+<span class="logo-word">Joseph <span>Editz</span></span>
 </a>
 
 <nav class="nav-links">
@@ -1319,34 +1312,19 @@ View My Work
 
 <img
 id="heroImage"
-class="hero-image image-placeholder"
+class="hero-image"
 alt="Joseph Editz profile image"
-src=""
+src="https://drive.google.com/uc?export=view&id=1RILjhE7xlFyeTLVIjM0P6s9ekx6mTw01"
+loading="eager"
 >
 
 <div class="hero-overlay">
 
-<strong>Joseph Editz</strong>
+<div class="brand-lockup"><svg class="mini-logo" viewBox="0 0 64 64" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="miniLogoGradient" x1="8" y1="8" x2="56" y2="56" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#2563EB"/><stop offset="0.55" stop-color="#7C3AED"/><stop offset="1" stop-color="#F43F5E"/></linearGradient></defs><rect x="3" y="3" width="58" height="58" rx="17" fill="#0B1020" stroke="url(#miniLogoGradient)" stroke-width="2"/><path d="M18 18H45V23H24V31H39V36H24V42C24 45.314 26.686 48 30 48H45V53H29C21.82 53 18 48.88 18 42V18Z" fill="url(#miniLogoGradient)"/><path d="M34 18H45C48.866 18 52 21.134 52 25V39C52 46.732 45.732 53 38 53H34V48H38C40.761 48 43 45.761 43 43V23H34V18Z" fill="#F8FAFC" opacity=".96"/><path d="M39 28H52V33H39V28Z" fill="#7C3AED"/></svg><strong>Joseph Editz</strong></div>
 
 <small>
 AI Music Videos • Video Editing • YouTube Automation
 </small>
-
-</div>
-
-<div class="upload-area">
-
-<label class="upload-label">
-
-Upload Your Profile Image
-
-<input
-type="file"
-id="heroImageUpload"
-class="file-input"
-accept="image/*">
-
-</label>
 
 </div>
 
@@ -1480,21 +1458,21 @@ id="servicesGrid">
 
         <div class="skills-track left">
 
-            <div class="skill-flow-card">YouTube Growth Strategy</div>
-            <div class="skill-flow-card">YouTube Automation</div>
-            <div class="skill-flow-card">YouTube SEO</div>
-            <div class="skill-flow-card">Content Strategy</div>
-            <div class="skill-flow-card">Channel Auditing</div>
-            <div class="skill-flow-card">Audience Growth</div>
-            <div class="skill-flow-card">Competitor Research</div>
+            <div class="skill-flow-card skill-with-image"><img src="https://drive.google.com/uc?export=view&id=1RILjhE7xlFyeTLVIjM0P6s9ekx6mTw01" alt="" loading="lazy"><span>YouTube Growth Strategy</span></div>
+            <div class="skill-flow-card skill-with-image"><img src="https://drive.google.com/uc?export=view&id=1RILjhE7xlFyeTLVIjM0P6s9ekx6mTw01" alt="" loading="lazy"><span>YouTube Automation</span></div>
+            <div class="skill-flow-card skill-with-image"><img src="https://drive.google.com/uc?export=view&id=1RILjhE7xlFyeTLVIjM0P6s9ekx6mTw01" alt="" loading="lazy"><span>YouTube SEO</span></div>
+            <div class="skill-flow-card skill-with-image"><img src="https://drive.google.com/uc?export=view&id=1RILjhE7xlFyeTLVIjM0P6s9ekx6mTw01" alt="" loading="lazy"><span>Content Strategy</span></div>
+            <div class="skill-flow-card skill-with-image"><img src="https://drive.google.com/uc?export=view&id=1RILjhE7xlFyeTLVIjM0P6s9ekx6mTw01" alt="" loading="lazy"><span>Channel Auditing</span></div>
+            <div class="skill-flow-card skill-with-image"><img src="https://drive.google.com/uc?export=view&id=1RILjhE7xlFyeTLVIjM0P6s9ekx6mTw01" alt="" loading="lazy"><span>Audience Growth</span></div>
+            <div class="skill-flow-card skill-with-image"><img src="https://drive.google.com/uc?export=view&id=1RILjhE7xlFyeTLVIjM0P6s9ekx6mTw01" alt="" loading="lazy"><span>Competitor Research</span></div>
 
-            <div class="skill-flow-card">YouTube Growth Strategy</div>
-            <div class="skill-flow-card">YouTube Automation</div>
-            <div class="skill-flow-card">YouTube SEO</div>
-            <div class="skill-flow-card">Content Strategy</div>
-            <div class="skill-flow-card">Channel Auditing</div>
-            <div class="skill-flow-card">Audience Growth</div>
-            <div class="skill-flow-card">Competitor Research</div>
+            <div class="skill-flow-card skill-with-image"><img src="https://drive.google.com/uc?export=view&id=1RILjhE7xlFyeTLVIjM0P6s9ekx6mTw01" alt="" loading="lazy"><span>YouTube Growth Strategy</span></div>
+            <div class="skill-flow-card skill-with-image"><img src="https://drive.google.com/uc?export=view&id=1RILjhE7xlFyeTLVIjM0P6s9ekx6mTw01" alt="" loading="lazy"><span>YouTube Automation</span></div>
+            <div class="skill-flow-card skill-with-image"><img src="https://drive.google.com/uc?export=view&id=1RILjhE7xlFyeTLVIjM0P6s9ekx6mTw01" alt="" loading="lazy"><span>YouTube SEO</span></div>
+            <div class="skill-flow-card skill-with-image"><img src="https://drive.google.com/uc?export=view&id=1RILjhE7xlFyeTLVIjM0P6s9ekx6mTw01" alt="" loading="lazy"><span>Content Strategy</span></div>
+            <div class="skill-flow-card skill-with-image"><img src="https://drive.google.com/uc?export=view&id=1RILjhE7xlFyeTLVIjM0P6s9ekx6mTw01" alt="" loading="lazy"><span>Channel Auditing</span></div>
+            <div class="skill-flow-card skill-with-image"><img src="https://drive.google.com/uc?export=view&id=1RILjhE7xlFyeTLVIjM0P6s9ekx6mTw01" alt="" loading="lazy"><span>Audience Growth</span></div>
+            <div class="skill-flow-card skill-with-image"><img src="https://drive.google.com/uc?export=view&id=1RILjhE7xlFyeTLVIjM0P6s9ekx6mTw01" alt="" loading="lazy"><span>Competitor Research</span></div>
 
         </div>
 
@@ -1505,21 +1483,21 @@ id="servicesGrid">
 
         <div class="skills-track right">
 
-            <div class="skill-flow-card">AI Video Production</div>
-            <div class="skill-flow-card">AI Animation</div>
-            <div class="skill-flow-card">AI Storytelling</div>
-            <div class="skill-flow-card">Video Editing</div>
-            <div class="skill-flow-card">Scriptwriting</div>
-            <div class="skill-flow-card">Prompt Engineering</div>
-            <div class="skill-flow-card">Creative Direction</div>
+            <div class="skill-flow-card skill-with-image"><img src="https://drive.google.com/uc?export=view&id=1RILjhE7xlFyeTLVIjM0P6s9ekx6mTw01" alt="" loading="lazy"><span>AI Video Production</span></div>
+            <div class="skill-flow-card skill-with-image"><img src="https://drive.google.com/uc?export=view&id=1RILjhE7xlFyeTLVIjM0P6s9ekx6mTw01" alt="" loading="lazy"><span>AI Animation</span></div>
+            <div class="skill-flow-card skill-with-image"><img src="https://drive.google.com/uc?export=view&id=1RILjhE7xlFyeTLVIjM0P6s9ekx6mTw01" alt="" loading="lazy"><span>AI Storytelling</span></div>
+            <div class="skill-flow-card skill-with-image"><img src="https://drive.google.com/uc?export=view&id=1RILjhE7xlFyeTLVIjM0P6s9ekx6mTw01" alt="" loading="lazy"><span>Video Editing</span></div>
+            <div class="skill-flow-card skill-with-image"><img src="https://drive.google.com/uc?export=view&id=1RILjhE7xlFyeTLVIjM0P6s9ekx6mTw01" alt="" loading="lazy"><span>Scriptwriting</span></div>
+            <div class="skill-flow-card skill-with-image"><img src="https://drive.google.com/uc?export=view&id=1RILjhE7xlFyeTLVIjM0P6s9ekx6mTw01" alt="" loading="lazy"><span>Prompt Engineering</span></div>
+            <div class="skill-flow-card skill-with-image"><img src="https://drive.google.com/uc?export=view&id=1RILjhE7xlFyeTLVIjM0P6s9ekx6mTw01" alt="" loading="lazy"><span>Creative Direction</span></div>
 
-            <div class="skill-flow-card">AI Video Production</div>
-            <div class="skill-flow-card">AI Animation</div>
-            <div class="skill-flow-card">AI Storytelling</div>
-            <div class="skill-flow-card">Video Editing</div>
-            <div class="skill-flow-card">Scriptwriting</div>
-            <div class="skill-flow-card">Prompt Engineering</div>
-            <div class="skill-flow-card">Creative Direction</div>
+            <div class="skill-flow-card skill-with-image"><img src="https://drive.google.com/uc?export=view&id=1RILjhE7xlFyeTLVIjM0P6s9ekx6mTw01" alt="" loading="lazy"><span>AI Video Production</span></div>
+            <div class="skill-flow-card skill-with-image"><img src="https://drive.google.com/uc?export=view&id=1RILjhE7xlFyeTLVIjM0P6s9ekx6mTw01" alt="" loading="lazy"><span>AI Animation</span></div>
+            <div class="skill-flow-card skill-with-image"><img src="https://drive.google.com/uc?export=view&id=1RILjhE7xlFyeTLVIjM0P6s9ekx6mTw01" alt="" loading="lazy"><span>AI Storytelling</span></div>
+            <div class="skill-flow-card skill-with-image"><img src="https://drive.google.com/uc?export=view&id=1RILjhE7xlFyeTLVIjM0P6s9ekx6mTw01" alt="" loading="lazy"><span>Video Editing</span></div>
+            <div class="skill-flow-card skill-with-image"><img src="https://drive.google.com/uc?export=view&id=1RILjhE7xlFyeTLVIjM0P6s9ekx6mTw01" alt="" loading="lazy"><span>Scriptwriting</span></div>
+            <div class="skill-flow-card skill-with-image"><img src="https://drive.google.com/uc?export=view&id=1RILjhE7xlFyeTLVIjM0P6s9ekx6mTw01" alt="" loading="lazy"><span>Prompt Engineering</span></div>
+            <div class="skill-flow-card skill-with-image"><img src="https://drive.google.com/uc?export=view&id=1RILjhE7xlFyeTLVIjM0P6s9ekx6mTw01" alt="" loading="lazy"><span>Creative Direction</span></div>
 
         </div>
 
@@ -1854,6 +1832,23 @@ id="servicesGrid">
 </section>
 
 
+<!-- REAL USER MEDIA PORTFOLIO -->
+<section id="media-portfolio" class="real-media-section">
+<div class="container">
+<div class="section-title"><span>My Actual Media</span><h2>Profile, Portfolio & Video Work</h2><p>Real work supplied by Joseph Editz, displayed from the media sources provided.</p></div>
+<div class="media-profile-card">
+<div><img class="real-profile-image" src="https://drive.google.com/uc?export=view&id=1RILjhE7xlFyeTLVIjM0P6s9ekx6mTw01" alt="Joseph Editz profile" loading="lazy"></div>
+<div class="media-profile-copy"><span class="media-label">Profile Image</span><h3>Creative Production With A Clear Digital Focus.</h3><p>AI music videos, video editing, YouTube content, animation, storytelling and growth-focused digital production.</p><a href="https://wa.me/2349066061082?text=Hello%20Joseph%20Editz,%20I%20would%20like%20to%20discuss%20your%20portfolio%20work." target="_blank" rel="noopener noreferrer" class="btn btn-primary">Discuss A Project</a></div>
+</div>
+<div class="media-work-grid">
+<article class="media-work-card"><div class="media-frame"><iframe src="https://drive.google.com/file/d/1Nz2ZYGgvIUvIEB_wPTB23RUEOHZzZX2v/preview" title="Joseph Editz video editing example" allow="autoplay; fullscreen" allowfullscreen loading="lazy"></iframe></div><div class="media-work-info"><h3>Video Editing Example</h3><p>Your supplied Google Drive video with the Drive player controls.</p></div></article>
+<article class="media-work-card"><div class="media-frame"><iframe src="https://drive.google.com/file/d/1gfEglhpYeVGOl85cguFnJWlVkY7aXud3/preview" title="Joseph Editz AI-generated video example" allow="autoplay; fullscreen" allowfullscreen loading="lazy"></iframe></div><div class="media-work-info"><h3>AI-Generated Video Example</h3><p>Your supplied Google Drive AI video with the Drive player controls.</p></div></article>
+<article class="media-work-card"><div class="media-frame"><iframe src="https://www.youtube.com/embed/i2DcQlYKbLc" title="Joseph Editz AI animation example" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe></div><div class="media-work-info"><h3>AI Animation Example</h3><p>Your supplied YouTube animation example.</p></div></article>
+<article class="media-work-card"><div class="media-frame"><iframe src="https://www.youtube.com/embed/9nzF0LNGORs" title="Joseph Editz YouTube content example" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe></div><div class="media-work-info"><h3>YouTube Content Example</h3><p>Your supplied YouTube-related content example.</p></div></article>
+</div>
+<div class="media-note">Google Drive sharing links are displayed through Drive's official responsive preview player. YouTube examples use YouTube's official embed player. No placeholder media has been added.</div>
+</div></section>
+
 <!-- =====================================================
      PORTFOLIO
 ===================================================== -->
@@ -1872,10 +1867,7 @@ Work, Style & Creative Direction
 </h2>
 
 <p>
-Show potential clients what you can create with your real profile image,
-project screenshots and finished video examples. The upload controls below
-preview files selected from your device; permanent deployed media should be
-added to your Vercel project as described in the media setup notes.
+A selection of your real profile and supplied video work, presented in a clean professional portfolio.
 </p>
 
 </div>
@@ -1891,25 +1883,10 @@ added to your Vercel project as described in the media setup notes.
 
 <img
 id="portfolioImage"
-class="profile-photo image-placeholder"
-src=""
+class="profile-photo"
+src="https://drive.google.com/uc?export=view&id=1RILjhE7xlFyeTLVIjM0P6s9ekx6mTw01"
+loading="lazy"
 alt="Joseph Editz">
-
-<div class="upload-area">
-
-<label class="upload-label">
-
-Upload Your Image
-
-<input
-type="file"
-id="portfolioImageUpload"
-class="file-input"
-accept="image/*">
-
-</label>
-
-</div>
 
 </div>
 
@@ -1919,9 +1896,12 @@ accept="image/*">
 
 <span>About My Work</span>
 
+<div class="profile-name-lockup">
+<svg class="mini-logo" viewBox="0 0 64 64" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="profileLogoGradient" x1="8" y1="8" x2="56" y2="56" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#2563EB"/><stop offset="0.55" stop-color="#7C3AED"/><stop offset="1" stop-color="#F43F5E"/></linearGradient></defs><rect x="3" y="3" width="58" height="58" rx="17" fill="#0B1020" stroke="url(#profileLogoGradient)" stroke-width="2"/><path d="M18 18H45V23H24V31H39V36H24V42C24 45.314 26.686 48 30 48H45V53H29C21.82 53 18 48.88 18 42V18Z" fill="url(#profileLogoGradient)"/><path d="M34 18H45C48.866 18 52 21.134 52 25V39C52 46.732 45.732 53 38 53H34V48H38C40.761 48 43 45.761 43 43V23H34V18Z" fill="#F8FAFC" opacity=".96"/><path d="M39 28H52V33H39V28Z" fill="#7C3AED"/></svg>
 <h2>
 Creative Content Built Around Your Vision.
 </h2>
+</div>
 
 <p>
 I combine AI technology, storytelling, video editing,
@@ -1967,30 +1947,11 @@ Work With Me
 id="video1"
 class="work-video"
 controls
-playsinline
-preload="metadata"
-data-poster="">
+preload="metadata">
 
 Your browser does not support video playback.
 
 </video>
-
-</div>
-
-
-<div class="video-upload">
-
-<label class="upload-label">
-
-Upload Video 1
-
-<input
-type="file"
-id="videoUpload1"
-class="file-input"
-accept="video/*">
-
-</label>
 
 </div>
 
@@ -2002,7 +1963,7 @@ Featured Project 01
 </h3>
 
 <p>
-Upload your strongest project here.
+Real video work supplied by Joseph Editz.
 </p>
 
 </div>
@@ -2021,30 +1982,11 @@ Upload your strongest project here.
 id="video2"
 class="work-video"
 controls
-playsinline
-preload="metadata"
-data-poster="">
+preload="metadata">
 
 Your browser does not support video playback.
 
 </video>
-
-</div>
-
-
-<div class="video-upload">
-
-<label class="upload-label">
-
-Upload Video 2
-
-<input
-type="file"
-id="videoUpload2"
-class="file-input"
-accept="video/*">
-
-</label>
 
 </div>
 
@@ -2056,7 +1998,7 @@ Featured Project 02
 </h3>
 
 <p>
-Upload another strong project here.
+Real video work supplied by Joseph Editz.
 </p>
 
 </div>
@@ -2318,33 +2260,6 @@ Message Me On WhatsApp
 
 </section>
 
-
-
-
-<!-- =====================================================
-     MEDIA DEPLOYMENT NOTE
-===================================================== -->
-
-<section class="contact-section" id="media-setup" style="padding-top:35px;padding-bottom:35px;">
-
-    <div class="container">
-
-        <div class="contact-cta">
-
-            <h3>Media Setup</h3>
-
-            <p>
-                The current upload controls preview your real files directly in the browser.
-                For permanent Vercel deployment, place your actual media files inside the
-                project's public asset folders and reference those real files in the HTML.
-                Do not use a path until the corresponding file exists in your project.
-            </p>
-
-        </div>
-
-    </div>
-
-</section>
 
 
 <!-- =====================================================
@@ -2684,176 +2599,7 @@ if("IntersectionObserver" in window){
 }
 
 
-/* =====================================================
-   PROFILE IMAGE UPLOAD
-===================================================== */
-
-function setupImageUpload(inputID,imageID){
-
-const input =
-document.getElementById(inputID);
-
-const image =
-document.getElementById(imageID);
-
-
-input.addEventListener("change",function(){
-
-const file = this.files[0];
-
-if(!file) return;
-
-
-if(!file.type.startsWith("image/")){
-
-alert("Please select an image file.");
-
-return;
-
-}
-
-
-const imageURL =
-URL.createObjectURL(file);
-
-
-image.src = imageURL;
-
-image.classList.remove("image-placeholder");
-
-});
-
-}
-
-
-setupImageUpload(
-"heroImageUpload",
-"heroImage"
-);
-
-
-setupImageUpload(
-"portfolioImageUpload",
-"portfolioImage"
-);
-
-
-/* Portfolio project image previews */
-setupImageUpload("portfolioWorkUpload1","portfolioWorkImage1");
-setupImageUpload("portfolioWorkUpload2","portfolioWorkImage2");
-setupImageUpload("portfolioWorkUpload3","portfolioWorkImage3");
-
-/*
-   Optional real poster support:
-   If you later add a real poster file to a video element, set
-   data-poster to its real deployed URL/path. No placeholder is used here.
-*/
-function applyVideoPoster(videoID){
-    const video=document.getElementById(videoID);
-    if(!video) return;
-
-    const poster=video.dataset.poster;
-
-    if(poster){
-        video.setAttribute("poster",poster);
-    }
-}
-
-applyVideoPoster("video1");
-applyVideoPoster("video2");
-
-
-
-
-/* =====================================================
-   VIDEO UPLOAD
-===================================================== */
-
-function setupVideoUpload(inputID,videoID){
-
-const input =
-document.getElementById(inputID);
-
-const video =
-document.getElementById(videoID);
-
-
-input.addEventListener("change",function(){
-
-const file = this.files[0];
-
-if(!file) return;
-
-
-if(!file.type.startsWith("video/")){
-
-alert("Please select a video file.");
-
-return;
-
-}
-
-
-const videoURL =
-URL.createObjectURL(file);
-
-
-video.src = videoURL;
-
-video.load();
-
-});
-
-}
-
-
-setupVideoUpload(
-"videoUpload1",
-"video1"
-);
-
-
-setupVideoUpload(
-"videoUpload2",
-"video2"
-);
-
-
-
-/* =====================================================
-   DEFAULT IMAGE PLACEHOLDER
-===================================================== */
-
-function createPlaceholder(imageID){
-
-const image =
-document.getElementById(imageID);
-
-image.removeAttribute("src");
-image.style.display="flex";
-
-image.style.alignItems="center";
-
-image.style.justifyContent="center";
-
-image.style.background=
-"linear-gradient(135deg,#0c1729,#101e33)";
-
-}
-
-
-createPlaceholder("heroImage");
-
-createPlaceholder("portfolioImage");
-
-createPlaceholder("portfolioWorkImage1");
-createPlaceholder("portfolioWorkImage2");
-createPlaceholder("portfolioWorkImage3");
-
-
 </script>
 
 </body>
 </html>
-
-```
