@@ -581,6 +581,16 @@ header{
     position:relative;
 }
 
+.drive-video{
+    width:100%;
+    height:100%;
+    min-height:320px;
+    border:0;
+    border-radius:inherit;
+    display:block;
+    background:#0B1020;
+}
+
 .work-video{
     width:100%;
     height:340px;
@@ -1943,15 +1953,16 @@ Work With Me
 
 <div class="video-wrapper">
 
-<video
+<iframe
 id="video1"
-class="work-video"
-controls
-preload="metadata">
+class="work-video drive-video"
+src="https://drive.google.com/file/d/1o9TTCrISEz2BQjzuPiA5T7N3F8GmkS7a/preview"
+title="Featured Project 01"
+allow="autoplay; fullscreen"
+allowfullscreen
+loading="lazy"></iframe>
 
-Your browser does not support video playback.
 
-</video>
 
 </div>
 
@@ -1978,15 +1989,16 @@ Real video work supplied by Joseph Editz.
 
 <div class="video-wrapper">
 
-<video
+<iframe
 id="video2"
-class="work-video"
-controls
-preload="metadata">
+class="work-video drive-video"
+src="https://drive.google.com/file/d/1lVPkXRU-Wfd-8IPcRwbH3XuVsAfeTQZ_/preview"
+title="Featured Project 02"
+allow="autoplay; fullscreen"
+allowfullscreen
+loading="lazy"></iframe>
 
-Your browser does not support video playback.
 
-</video>
 
 </div>
 
@@ -2598,6 +2610,22 @@ if("IntersectionObserver" in window){
 
 }
 
+
+/* Google Drive share-link converter for Featured Project 01 and 02 */
+const projectDriveLinks = {
+    video1: "https://drive.google.com/file/d/1o9TTCrISEz2BQjzuPiA5T7N3F8GmkS7a/view?usp=drive_link",
+    video2: "https://drive.google.com/file/d/1lVPkXRU-Wfd-8IPcRwbH3XuVsAfeTQZ_/view?usp=drive_link"
+};
+
+function drivePreviewUrl(shareLink) {
+    const match = shareLink.match(/(?:\/d\/|id=)([a-zA-Z0-9_-]+)/);
+    return match ? `https://drive.google.com/file/d/${match[1]}/preview` : shareLink;
+}
+
+Object.entries(projectDriveLinks).forEach(([videoId, shareLink]) => {
+    const player = document.getElementById(videoId);
+    if (player && shareLink) player.src = drivePreviewUrl(shareLink);
+});
 
 </script>
 
