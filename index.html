@@ -30,6 +30,7 @@
     --text:#f7f9ff;
     --muted:#aab6c9;
     --blue:#2563EB;
+    --violet:#7C3AED;
     --cyan:#60a5fa;
     --purple:#7c3aed;
     --border:rgba(255,255,255,.09);
@@ -38,9 +39,9 @@
 body{
     font-family:Arial,Helvetica,sans-serif;
     background:
-        radial-gradient(circle at 10% 10%,rgba(59,130,246,.14),transparent 30%),
-        radial-gradient(circle at 90% 20%,rgba(139,92,246,.13),transparent 30%),
-        linear-gradient(135deg,#050914,#081221 50%,#050914);
+        radial-gradient(circle at 12% 12%,rgba(124,58,237,.22),transparent 30%),
+        radial-gradient(circle at 88% 20%,rgba(37,99,235,.16),transparent 32%),
+        linear-gradient(135deg,#050714,#090B1C 50%,#050714);
     color:var(--text);
     line-height:1.6;
     overflow-x:hidden;
@@ -165,7 +166,7 @@ header{
 }
 
 .hero h1 span{
-    background:linear-gradient(90deg,var(--cyan),var(--blue),var(--purple));
+    background:linear-gradient(90deg,var(--violet),var(--blue),var(--cyan));
     -webkit-background-clip:text;
     color:transparent;
 }
@@ -327,7 +328,7 @@ header{
 .services-section{
     background:
         linear-gradient(rgba(5,9,20,.82),rgba(5,9,20,.96)),
-        radial-gradient(circle at center,rgba(59,130,246,.12),transparent 55%);
+        radial-gradient(circle at center,rgba(124,58,237,.16),transparent 55%);
 }
 
 .services-grid{
@@ -602,7 +603,7 @@ header{
 
 .contact-section{
     background:
-        radial-gradient(circle at center,rgba(59,130,246,.12),transparent 50%);
+        radial-gradient(circle at center,rgba(124,58,237,.16),transparent 50%);
 }
 
 .contact-box{
@@ -707,6 +708,96 @@ footer{
 }
 
 
+
+
+/* =====================================================
+   MEDIA INTEGRATION
+   Real project media can be wired into the existing
+   portfolio without changing the page structure.
+===================================================== */
+
+.media-source-note{
+    margin-top:10px;
+    color:#94A3B8;
+    font-size:11px;
+    line-height:1.55;
+}
+
+.media-frame{
+    position:relative;
+    overflow:hidden;
+    border-radius:15px;
+    background:#050714;
+    border:1px solid rgba(255,255,255,.06);
+}
+
+.media-frame img,
+.media-frame video{
+    display:block;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.portfolio-media-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+    margin-top:28px;
+}
+
+.portfolio-media-card{
+    overflow:hidden;
+    border-radius:18px;
+    background:#111827;
+    border:1px solid #29334A;
+}
+
+.portfolio-media-image{
+    aspect-ratio:16/10;
+}
+
+.portfolio-media-card-content{
+    padding:15px;
+}
+
+.portfolio-media-card-content h3{
+    font-size:15px;
+    margin-bottom:4px;
+}
+
+.portfolio-media-card-content p{
+    color:#94A3B8;
+    font-size:11px;
+}
+
+.work-video{
+    aspect-ratio:16/9;
+    height:auto;
+    min-height:0;
+    object-fit:contain;
+    background:#050714;
+}
+
+.video-poster{
+    width:100%;
+    aspect-ratio:16/9;
+    object-fit:cover;
+    display:block;
+    background:#050714;
+}
+
+@media(max-width:950px){
+    .portfolio-media-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+}
+
+@media(max-width:650px){
+    .portfolio-media-grid{
+        grid-template-columns:1fr;
+    }
+}
 
 /* =====================================================
    SKILLS FLOW + CREATIVE & DIGITAL EXPERTISE
@@ -1781,8 +1872,10 @@ Work, Style & Creative Direction
 </h2>
 
 <p>
-Show potential clients what you can create by adding your
-profile image and your best finished projects below.
+Show potential clients what you can create with your real profile image,
+project screenshots and finished video examples. The upload controls below
+preview files selected from your device; permanent deployed media should be
+added to your Vercel project as described in the media setup notes.
 </p>
 
 </div>
@@ -1874,7 +1967,9 @@ Work With Me
 id="video1"
 class="work-video"
 controls
-preload="metadata">
+playsinline
+preload="metadata"
+data-poster="">
 
 Your browser does not support video playback.
 
@@ -1926,7 +2021,9 @@ Upload your strongest project here.
 id="video2"
 class="work-video"
 controls
-preload="metadata">
+playsinline
+preload="metadata"
+data-poster="">
 
 Your browser does not support video playback.
 
@@ -2221,6 +2318,33 @@ Message Me On WhatsApp
 
 </section>
 
+
+
+
+<!-- =====================================================
+     MEDIA DEPLOYMENT NOTE
+===================================================== -->
+
+<section class="contact-section" id="media-setup" style="padding-top:35px;padding-bottom:35px;">
+
+    <div class="container">
+
+        <div class="contact-cta">
+
+            <h3>Media Setup</h3>
+
+            <p>
+                The current upload controls preview your real files directly in the browser.
+                For permanent Vercel deployment, place your actual media files inside the
+                project's public asset folders and reference those real files in the HTML.
+                Do not use a path until the corresponding file exists in your project.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
 
 
 <!-- =====================================================
@@ -2614,6 +2738,32 @@ setupImageUpload(
 );
 
 
+/* Portfolio project image previews */
+setupImageUpload("portfolioWorkUpload1","portfolioWorkImage1");
+setupImageUpload("portfolioWorkUpload2","portfolioWorkImage2");
+setupImageUpload("portfolioWorkUpload3","portfolioWorkImage3");
+
+/*
+   Optional real poster support:
+   If you later add a real poster file to a video element, set
+   data-poster to its real deployed URL/path. No placeholder is used here.
+*/
+function applyVideoPoster(videoID){
+    const video=document.getElementById(videoID);
+    if(!video) return;
+
+    const poster=video.dataset.poster;
+
+    if(poster){
+        video.setAttribute("poster",poster);
+    }
+}
+
+applyVideoPoster("video1");
+applyVideoPoster("video2");
+
+
+
 
 /* =====================================================
    VIDEO UPLOAD
@@ -2679,6 +2829,7 @@ function createPlaceholder(imageID){
 const image =
 document.getElementById(imageID);
 
+image.removeAttribute("src");
 image.style.display="flex";
 
 image.style.alignItems="center";
@@ -2694,6 +2845,10 @@ image.style.background=
 createPlaceholder("heroImage");
 
 createPlaceholder("portfolioImage");
+
+createPlaceholder("portfolioWorkImage1");
+createPlaceholder("portfolioWorkImage2");
+createPlaceholder("portfolioWorkImage3");
 
 
 </script>
